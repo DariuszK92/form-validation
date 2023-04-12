@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form validation</title>
+   
+</head>
+<body>
+    <form id="formEl">
+        <h2>Sign up!</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="email-validator">Email format required: example@example</span>
+        <label for="zipcode">Zip code:</label>
+        <input type="text" id="zipcode" name="zipcode" pattern="^[0-9]{2}-[0-9]{3}" required>
+        <span id="zipcode-validator">Zip code format XX-XXX</span>
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" minlength="3" required>
+        <span id="country-validator">Minimum 3 letters required</span>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required>
+        <span id="password-validator">Minimum 8 letters required, one letter, one number</span>
+        <label for="password2">Confirm password:</label>
+        <input type="password" id="password2" name="password2" >
+        <span id="password2-validator">Passwords must match</span>
+        <input type="submit" value="Send data" id="submit">
+      
+
+    </form>
+
+    <script src="main.js"></script>
+</body>
+</html>

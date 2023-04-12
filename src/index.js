@@ -33,7 +33,7 @@ emailInput.addEventListener('keyup', (e) => {
 countryInput.addEventListener('keyup', (e) => {
     countryInput.setCustomValidity('');
     if (!countryInput.checkValidity(e)) {
-        countryInput.setCustomValidity('Email must contain @');
+        countryInput.setCustomValidity('Country name requires minimum 3 letters');
         countryInput.classList.remove('valid');
         countryValidator.textContent = "Minimum 3 letters required";
         countryValidator.style.backgroundColor = 'gray';
@@ -49,7 +49,7 @@ countryInput.addEventListener('keyup', (e) => {
 zipcodeInput.addEventListener('keyup', (e) => {
        zipcodeInput.setCustomValidity('');
     if (!zipcodeInput.checkValidity(e)) {
-        zipcodeInput.setCustomValidity('Email must contain @');
+        zipcodeInput.setCustomValidity('Zip-code format: XX-XXX');
         zipcodeInput.classList.remove('valid');
         zipcodeValidator.textContent = "Zip code format XX-XXX";
         zipcodeValidator.style.backgroundColor = 'gray';
@@ -73,7 +73,7 @@ passwordInput.addEventListener('keyup', (e) => {
     passwordInput.setCustomValidity('');
 
  if (!passwordInput.checkValidity(e)) {
-    passwordInput.setCustomValidity('Email must contain @');
+    passwordInput.setCustomValidity('Password requires minimum 8 letters required, one letter, one number');
     passwordInput.classList.remove('valid');
      passwordValidator.textContent = "Minimum 8 letters required, one letter, one number";
      passwordValidator.style.backgroundColor = 'gray';
@@ -96,9 +96,9 @@ passwordInput.addEventListener('keyup', (e) => {
 password2Input.addEventListener('keyup', (e) => {
 password2Input.setCustomValidity('');
 let password1 = passwordInput.value;
-console.log(password1);
+
 if (password2Input.value!=password1) {
-    password2Input.setCustomValidity('Email must contain @');
+    password2Input.setCustomValidity('Passwords must match');
     password2Input.classList.remove('valid');
      password2Validator.textContent = "Passwords must match";
      password2Validator.style.backgroundColor = 'gray';
@@ -122,7 +122,12 @@ function validateForm(event) {
         alert('All correct, high five!')
     }
     else {
-        console.log('notyet')
+        password2Input.reportValidity();
+        passwordInput.reportValidity();
+        countryInput.reportValidity();
+        zipcodeInput.reportValidity();
+        emailInput.reportValidity();
+       
     }
 }
 
